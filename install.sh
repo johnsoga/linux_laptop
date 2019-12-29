@@ -1,12 +1,14 @@
 #!/bin/bash
 
-IS_VMWARE="$(lspci | grep -i vmware > /dev/null 2>1; echo $?)"
 
 ##### UPDATE OS
 apt update && apt upgrade
 
 ##### INSTALL PACKAGES
-# VMWare specific software
-if[ "$IS_VMWARE" ]; then
-    apt install open-vm-tools open-vm-tool-desktop
+# Install VMWare specific software if running in VMWare VM
+if lspci | grep -i vmware > /dev/null 2>1; then
+    apt install open-vm-tools open-vm-tools-desktop
 fi
+
+# Essential Packages
+apt install htop vim i3 xorg
