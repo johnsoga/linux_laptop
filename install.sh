@@ -11,4 +11,4 @@ if lspci | grep -i vmware > /dev/null 2>1; then
 fi
 
 # Essential Packages
-apt install htop vim i3 xorg
+apt install htop vim i3 feh conky xorg sudo curl firefox-esr pulseaudio pavucontrol ufw terminator
